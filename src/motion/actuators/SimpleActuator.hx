@@ -577,7 +577,7 @@ class SimpleActuator<T, U> extends GenericActuator<T> {
 	#else 
 	private 
 	#end
-	static function stage_onEnterFrame (#if (flash || nme || openfl) event:Event #elseif lime deltaTime:Int #elseif js deltaTime:Float #end):Void {
+	static function stage_onEnterFrame (#if (flash || nme || openfl) event:Event #elseif lime deltaTime:Int #elseif js deltaTime:Float #else deltaTime:Float #end):Void {
 		#if !actuate_manual_time
 			#if (flash || nme || openfl)
 			var currentTime:Float = Lib.getTimer () / 1000;
